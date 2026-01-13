@@ -108,7 +108,30 @@
     </style>
 </head>
 <body>
+<div onclick="toggleAdminPanel()" style="position:fixed; bottom:10px; right:10px; z-index:1000; opacity:0.2; cursor:pointer;">
+    <i class="fas fa-cog text-white"></i>
+</div>
 
+<div id="adminPanel" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:2000; align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#1a1a1a; width:100%; max-width:400px; padding:25px; border-radius:20px; border:1px solid #d4af37;">
+        <h2 style="color:#d4af37; margin-bottom:20px; font-weight:bold;">إعدادات السيرفر</h2>
+        
+        <label class="block text-xs text-gray-400 mb-1">رابط السيرفر (Host)</label>
+        <input id="set_base" type="text" class="w-full bg-black border border-gray-700 p-2 rounded mb-4 text-sm" placeholder="http://domain.com:port">
+        
+        <label class="block text-xs text-gray-400 mb-1">اسم المستخدم (User)</label>
+        <input id="set_user" type="text" class="w-full bg-black border border-gray-700 p-2 rounded mb-4 text-sm">
+        
+        <label class="block text-xs text-gray-400 mb-1">كلمة المرور (Pass)</label>
+        <input id="set_pass" type="password" class="w-full bg-black border border-gray-700 p-2 rounded mb-6 text-sm">
+        
+        <div class="flex gap-2">
+            <button onclick="applySettings()" class="flex-1 bg-yellow-600 text-black font-bold py-2 rounded">حفظ التغييرات</button>
+            <button onclick="toggleAdminPanel()" class="flex-1 bg-gray-800 text-white py-2 rounded">إلغاء</button>
+        </div>
+        <button onclick="resetSettings()" class="w-full mt-4 text-xs text-red-500 opacity-50">استعادة الإعدادات الأصلية</button>
+    </div>
+</div>
 <header>
     <span style="color:var(--accent-color); font-weight:bold;" id="appName">DAMI X-PRO</span>
     <div id="status" class="text-xs opacity-50">متصل</div>
